@@ -1,0 +1,65 @@
+hotstnamectl hostname ___hostname____
+
+cd /usr/lib/systemd/system
+ls -l runlevel*.target
+
+systenctl set-default multi-user.target
+#default 開機就是圖形介面
+
+ssh abby@ubuntu17.example.com
+su -l spark3 
+pw: abc123
+
+who (see who is connecting the device)
+
+spark-shell --master local[1] -> able to view scala interface
+
+pyspark = python + spark
+
+pyspark
+spark.sparkContext.appName 
+PySparkShell created automatically
+
+pyspark /usr/local/spark/python 完整版路徑
+
+cd $SPARK_HOME
+spark-summit examples/src/main/python/pi.py 10
+
+pip3 list | grep 'pandas'   -> see version
+pip3 install --upgrade --upgrade-strategy eager pandas -> 相關套件都升級
+
+
+spark.sql('SELECT *, (age>=30) as over30 FROM dfTable').explain()
+
+df.withColumn('age_after_10_yrs',(df['age']+10)).show(10,truncate=False)
+超過特定字數會用....
+
+df.filter("mobile=='vivo' and experience>10").explain(extended=True)
+
+sort rows -> big data 不建議
+
+prod_udf = pandas_udf(prod,DoubleType())
+
+pandas -> ps 
+psdf = ps.from_pandas(pdf)
+psdf = ps.DataFrame(pdf)
+
+ps -> pandas
+
+
+pandas -> spark
+sdf = spark.createDateFrame(pdf)
+
+spark -> pandas
+
+
+ps -> spark
+
+
+
+spark -> ps
+psdf = sdf.to_pandas_on_spark()  # old
+#psdf = sdf.pandas_api()         # new
+
+#index 重新編排，會受到index type 的影響
+
